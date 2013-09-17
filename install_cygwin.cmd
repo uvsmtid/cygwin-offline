@@ -1,5 +1,5 @@
 @echo off
-REM This script downloads Cygwin and its components.
+REM This script automatically installs Cygwin and its components.
 
 set DISTRIBDIR=C:\cygwin.distrib
 
@@ -43,6 +43,6 @@ xorg-server,^
 xhost,^
 xeyes,^
 xterm,^
- --download ^
+ --quiet-mode --local-install ^
  --local-package-dir %DISTRIBDIR% -R %ROOTDIR% --only-site --site %SITEURL% 
 
