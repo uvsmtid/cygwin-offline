@@ -46,3 +46,6 @@ xterm,^
  --quiet-mode --local-install ^
  --local-package-dir %DISTRIBDIR% -R %ROOTDIR% --only-site --site %SITEURL% 
 
+
+REM Run OpenSSH server installation script
+%DISTRIBDIR%\setup_openssh.cmd
