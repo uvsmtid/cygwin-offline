@@ -15,6 +15,6 @@ REM Copy OpenSSH daemon configuration file
 copy %DISTRIBDIR%\sshd_config       %ROOTDIR%\home\sshd
 
 REM Copy bat file to user's startup directory
-copy %DISTRIBDIR%\sshd_start.cmd    %APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup
+copy %DISTRIBDIR%\sshd_start.cmd    %USERPROFILE%\"AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 
 
