@@ -1,8 +1,8 @@
 @echo off
 REM This script downloads Cygwin and its components.
 
-set CYGWINROOTDIR=C:\cygwin64
 set CYGWINDISTRIBDIR=C:\cygwin.distrib
+set CYGWINROOTDIR=C:\cygwin64
 
 set SITEURL="http://mirrors.kernel.org/sourceware/cygwin/"
 

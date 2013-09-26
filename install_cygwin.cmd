@@ -2,7 +2,6 @@
 REM This script automatically installs Cygwin and its components.
 
 set CYGWINDISTRIBDIR=C:\cygwin.distrib
-
 set CYGWINROOTDIR=C:\cygwin64
 
 set SITEURL="http://mirrors.kernel.org/sourceware/cygwin/"
