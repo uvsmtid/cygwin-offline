@@ -1,19 +1,19 @@
 @echo off
 REM This script automatically installs Cygwin and its components.
 
-set DISTRIBDIR=C:\cygwin.distrib
+set CYGWINDISTRIBDIR=C:\cygwin.distrib
 
-set ROOTDIR=C:\cygwin64
+set CYGWINROOTDIR=C:\cygwin64
 
 set SITEURL="http://mirrors.kernel.org/sourceware/cygwin/"
 
 REM Show hint for user.
-echo Specified distribution directory: %DISTRIBDIR%
-echo Specified installation directory: %ROOTDIR%
+echo Specified distribution directory: %CYGWINDISTRIBDIR%
+echo Specified installation directory: %CYGWINROOTDIR%
 
 REM Run the setup providing list of all required components.
 REM Note: the `^` character makes `cmd` interpreter concatenate lines.
-%DISTRIBDIR%\setup-x86_64.exe --packages ^
+%CYGWINDISTRIBDIR%\setup-x86_64.exe --packages ^
 mintty,^
 bzip2,^
 unzip,^
@@ -44,12 +44,13 @@ xhost,^
 xeyes,^
 xterm,^
  --quiet-mode --local-install ^
- --local-package-dir %DISTRIBDIR% -R %ROOTDIR% --only-site --site %SITEURL% 
+ --local-package-dir %CYGWINDISTRIBDIR% -R %CYGWINROOTDIR% --only-site --site %SITEURL%
 
 
 REM Add Cygwin's bin directory to PATH (to make DLL search successful)
-setx PATH "%PATH%;%ROOTDIR%\bin;"
+setx PATH "%PATH%;%CYGWINROOTDIR%\bin;"
 
 
 REM Run OpenSSH server installation script
-%DISTRIBDIR%\setup_openssh.cmd
+%CYGWINDISTRIBDIR%\setup_openssh.cmd
+
