@@ -12,7 +12,7 @@ echo Specified installation directory: %CYGWINROOTDIR%
 
 REM Run the setup providing list of all required components.
 REM Note: the `^` character makes `cmd` interpreter concatenate lines.
-%CYGWINDISTRIBDIR%\setup-x86_64.exe --packages ^
+%CYGWINDISTRIBDIR%\installer\setup-x86_64.exe --packages ^
 mintty,^
 bzip2,^
 unzip,^
@@ -43,5 +43,5 @@ xhost,^
 xeyes,^
 xterm,^
  --download ^
- --local-package-dir %CYGWINDISTRIBDIR% -R %CYGWINROOTDIR% --only-site --site %SITEURL%
+ --local-package-dir %CYGWINDISTRIBDIR%\installer -R %CYGWINROOTDIR% --only-site --site %SITEURL%
 

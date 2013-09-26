@@ -7,8 +7,8 @@ UNIXCYGWINDISTRIBDIR="/cygdrive/c/cygwin.distrib"
 UNIXCYGWINROOTDIR="/cygdrive/c/cygwin64"
 
 # Copy generic files to Cygwin filesystem's root
-cp -r "$UNIXCYGWINDISTRIBDIR/sys/generic"/* /
+cp -r "$UNIXCYGWINDISTRIBDIR/repo/sys/generic"/* /
 
 # Overwrite what was generic by Cygwin-specific files
-cp -r "$UNIXCYGWINDISTRIBDIR/sys/cygwin"/* /
+cp -r "$UNIXCYGWINDISTRIBDIR/repo/sys/cygwin"/* /
 
