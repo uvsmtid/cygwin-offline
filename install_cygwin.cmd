@@ -47,5 +47,9 @@ xterm,^
  --local-package-dir %DISTRIBDIR% -R %ROOTDIR% --only-site --site %SITEURL% 
 
 
+REM Add Cygwin's bin directory to PATH (to make DLL search successful)
+setx PATH "%PATH%;%ROOTDIR%\bin;"
+
+
 REM Run OpenSSH server installation script
 %DISTRIBDIR%\setup_openssh.cmd
