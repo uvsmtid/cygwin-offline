@@ -4,8 +4,8 @@ REM This script automatically installs Cygwin and its components.
 set CYGWINDISTRIBDIR=C:\cygwin.distrib
 set CYGWINROOTDIR=C:\cygwin64
 
-set UNIXCYGWINDISTRIBDIR="/cygdrive/c/cygwin.distrib"
-set UNIXCYGWINROOTDIR="/cygdrive/c/cygwin64"
+set UNIXCYGWINDISTRIBDIR=/cygdrive/c/cygwin.distrib
+set UNIXCYGWINROOTDIR=/cygdrive/c/cygwin64
 
 set SITEURL="http://mirrors.kernel.org/sourceware/cygwin/"
 
@@ -55,6 +55,6 @@ REM Run OpenSSH server installation script
 %CYGWINDISTRIBDIR%\repo\installer\setup_openssh.cmd
 
 REM Install NEL-specific software
-%CYGWINROOTDIR%\bin\bash.exe -c "$UNIXCYGWINDISTRIBDIR/installer/install_cygwin_NEL_software.sh"
+%CYGWINROOTDIR%\bin\bash.exe -c "$UNIXCYGWINDISTRIBDIR/repo/installer/install_cygwin_NEL_software.sh"
 
 
