@@ -13,6 +13,9 @@ REM Show hint for user.
 echo Specified distribution directory: %CYGWINDISTRIBDIR%
 echo Specified installation directory: %CYGWINROOTDIR%
 
+REM Add Cygwin's bin directory to current user's PATH (to make DLL search successful) permanently
+setx PATH "%PATH%;%CYGWINROOTDIR%\bin;"
+
 REM Run the setup providing list of all required components.
 REM Note: the `^` character makes `cmd` interpreter concatenate lines.
 %CYGWINDISTRIBDIR%\installer\setup-x86_64.exe --packages ^
@@ -47,9 +50,6 @@ xeyes,^
 xterm,^
  --quiet-mode --local-install ^
  --local-package-dir %CYGWINDISTRIBDIR%\installer -R %CYGWINROOTDIR% --only-site --site %SITEURL%
-
-REM Add Cygwin's bin directory to current user's PATH (to make DLL search successful) permanently
-setx PATH "%PATH%;%CYGWINROOTDIR%\bin;"
 
 REM Install NEL-specific software
 %CYGWINROOTDIR%\bin\bash.exe -c "$UNIXCYGWINDISTRIBDIR/repo/installer/install_cygwin_NEL_software.sh"
