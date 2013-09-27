@@ -51,10 +51,10 @@ xterm,^
 REM Add Cygwin's bin directory to current user's PATH (to make DLL search successful) permanently
 setx PATH "%PATH%;%CYGWINROOTDIR%\bin;"
 
-REM Run OpenSSH server installation script
-%CYGWINDISTRIBDIR%\repo\installer\setup_openssh.cmd
-
 REM Install NEL-specific software
 %CYGWINROOTDIR%\bin\bash.exe -c "$UNIXCYGWINDISTRIBDIR/repo/installer/install_cygwin_NEL_software.sh"
+
+REM Run OpenSSH server installation script
+%CYGWINDISTRIBDIR%\repo\installer\setup_openssh.cmd
 
 
