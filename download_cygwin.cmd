@@ -42,6 +42,7 @@ xorg-server,^
 xhost,^
 xeyes,^
 xterm,^
+rsync,^
  --download ^
  --local-package-dir %CYGWINDISTRIBDIR%\installer -R %CYGWINROOTDIR% --only-site --site %SITEURL%
 
