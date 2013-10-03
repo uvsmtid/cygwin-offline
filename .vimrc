@@ -94,3 +94,15 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+
+" NEL
+" - Disable mouse with visual mode to make it possible to copy & paste
+"   test through `vim`:
+set mouse-=a
+" - Enable better color scheme which shows brighter comments (rather
+"   than default dark blue:
+colorscheme elflord
+" - Enable syntax by default:
+syntax on
+
