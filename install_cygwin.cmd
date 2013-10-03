@@ -49,6 +49,7 @@ xhost,^
 xeyes,^
 xterm,^
 rsync,^
+nano,^
  --quiet-mode --local-install ^
  --local-package-dir %CYGWINDISTRIBDIR%\installer -R %CYGWINROOTDIR% --only-site --site %SITEURL%
 

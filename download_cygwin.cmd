@@ -43,6 +43,7 @@ xhost,^
 xeyes,^
 xterm,^
 rsync,^
+nano,^
  --download ^
  --local-package-dir %CYGWINDISTRIBDIR%\installer -R %CYGWINROOTDIR% --only-site --site %SITEURL%
 
