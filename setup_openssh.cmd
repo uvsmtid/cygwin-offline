@@ -1,4 +1,4 @@
-@echo off
+@echo on
 REM This script sets up OpenSSH daemon for Cygwin
 
 set CYGWINROOTDIR=C:\cygwin64

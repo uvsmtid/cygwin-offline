@@ -1,4 +1,4 @@
-@echo off
+@echo on
 REM This script automatically installs Cygwin and its components.
 
 set CYGWINDISTRIBDIR=C:\cygwin.distrib

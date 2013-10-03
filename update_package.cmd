@@ -1,4 +1,4 @@
-@echo off
+@echo on
 REM This updates Cygwin zip package.
 
 set CYGWINROOTDIR=C:\cygwin64
