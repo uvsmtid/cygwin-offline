@@ -3,6 +3,7 @@ REM This script automatically installs Cygwin and its components.
 
 set CYGWINDISTRIBDIR=C:\cygwin.distrib
 set CYGWINROOTDIR=C:\cygwin64
+set CYGWINBINDIR=%CYGWINROOTDIR%\bin
 
 set UNIXCYGWINDISTRIBDIR=/cygdrive/c/cygwin.distrib
 set UNIXCYGWINROOTDIR=/cygdrive/c/cygwin64
@@ -14,7 +15,8 @@ echo Specified distribution directory: %CYGWINDISTRIBDIR%
 echo Specified installation directory: %CYGWINROOTDIR%
 
 REM Add Cygwin's bin directory to current user's PATH (to make DLL search successful) permanently
-setx PATH "%PATH%;%CYGWINROOTDIR%\bin;"
+REM Try to find if it has already been added before.
+echo %PATH% | findstr /I /C:";%CYGWINBINDIR%;" > nul || setx PATH "%PATH%;%CYGWINBINDIR%;"
 
 REM Run the setup providing list of all required components.
 REM Note: the `^` character makes `cmd` interpreter concatenate lines.
