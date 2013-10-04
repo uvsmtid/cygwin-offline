@@ -56,7 +56,10 @@ nano,^
  --local-package-dir %CYGWINDISTRIBDIR%\installer -R %CYGWINROOTDIR% --only-site --site %SITEURL%
 
 REM Copy `.vimrc` file to user's home to fix default `vim` installation inconvenient configuration
-%CYGWINROOTDIR%\bin\bash.exe -c "$UNIXCYGWINDISTRIBDIR/repo/installer/.vimrc ~"
+%CYGWINROOTDIR%\bin\bash.exe -c "/usr/bin/cp $UNIXCYGWINDISTRIBDIR/repo/installer/.vimrc ~"
+
+REM Copy `.bashrc` file to user's home to fix default `vim` installation inconvenient configuration
+%CYGWINROOTDIR%\bin\bash.exe -c "/usr/bin/cp $UNIXCYGWINDISTRIBDIR/repo/installer/.bashrc ~"
 
 REM Install NEL-specific software
 %CYGWINROOTDIR%\bin\bash.exe -c "$UNIXCYGWINDISTRIBDIR/repo/installer/install_cygwin_NEL_software.sh"
