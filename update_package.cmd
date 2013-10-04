@@ -31,4 +31,8 @@ REM TODO: Archive package content
 REM TODO: Upload base package automatically
 
 
+REM Report
+pause "Press any key..."
+
+
 
