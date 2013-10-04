@@ -196,3 +196,7 @@
 # }
 # 
 # alias cd=cd_func
+
+alias vi="vim"
+alias ll="ls -l"
+
