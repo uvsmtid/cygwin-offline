@@ -4,6 +4,10 @@ REM This updates Cygwin zip package.
 set CYGWINROOTDIR=C:\cygwin64
 set CYGWINDISTRIBDIR=C:\cygwin.distrib
 
+set UNIXCYGWINDISTRIBDIR=/cygdrive/c/cygwin.distrib
+set UNIXCYGWINROOTDIR=/cygdrive/c/cygwin64
+
+
 REM Show hint for user.
 echo Specified installation directory: %CYGWINROOTDIR%
 echo Specified distribution directory: %CYGWINDISTRIBDIR%
@@ -18,8 +22,8 @@ cd %CYGWINDISTRIBDIR%\repo
 svn update installer
 svn update sys
 
-REM Report
-pause "Press any key..."
+REM Archive all files by tar to preserve permissions (especially executable)
+%CYGWINROOTDIR%\bin\bash.exe -c "cd $UNIXCYGWINDISTRIBDIR ; tar -cvf repo.tar repo"
 
 REM TODO: Archive package content
 

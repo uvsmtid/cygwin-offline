@@ -6,6 +6,12 @@
 UNIXCYGWINDISTRIBDIR="/cygdrive/c/cygwin.distrib"
 UNIXCYGWINROOTDIR="/cygdrive/c/cygwin64"
 
+
+# Extract all files by tar to preserve permissions (especially executable)
+cd $UNIXCYGWINDISTRIBDIR
+/usr/bin/tar -xvf repo.tar
+
+
 # Copy generic files to Cygwin filesystem's root
 /usr/bin/cp -r "$UNIXCYGWINDISTRIBDIR/repo/sys/generic"/* /
 
