@@ -8,6 +8,9 @@ set CYGWINBINDIR=%CYGWINROOTDIR%\bin
 set UNIXCYGWINDISTRIBDIR=/cygdrive/c/cygwin.distrib
 set UNIXCYGWINROOTDIR=/cygdrive/c/cygwin64
 
+REM Switch into installer directory (to avoid creating logs in the current one)
+cd %CYGWINDISTRIBDIR%\installer
+
 set SITEURL="http://mirrors.kernel.org/sourceware/cygwin/"
 
 REM Show hint for user.

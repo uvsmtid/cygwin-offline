@@ -4,6 +4,10 @@ REM This script sets up OpenSSH daemon for Cygwin
 set CYGWINROOTDIR=C:\cygwin64
 set CYGWINDISTRIBDIR=C:\cygwin.distrib
 
+
+set UNIXCYGWINDISTRIBDIR=/cygdrive/c/cygwin.distrib
+set UNIXCYGWINROOTDIR=/cygdrive/c/cygwin64
+
 REM Show hint for user.
 echo Specified installation directory: %CYGWINROOTDIR%
 echo Specified distribution directory: %CYGWINDISTRIBDIR%
