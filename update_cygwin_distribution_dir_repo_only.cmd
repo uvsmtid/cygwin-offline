@@ -11,10 +11,14 @@ REM Show hint for user.
 echo Specified installation directory: "%CYGWINROOTDIR%"
 echo Specified distribution directory: "%CYGWINDISTRIBDIR%"
 
-REM Update each svn directory
+REM Update each svn directory under repo
 cd "%CYGWINDISTRIBDIR%\repo"
 svn update installer
 svn update sys
+
+REM Update package root directory
+cd "%CYGWINDISTRIBDIR%
+svn update .
 
 REM Archive all files by tar to preserve permissions (especially executable)
 "%CYGWINROOTDIR%\bin\bash.exe" -c "cd \"$^(/usr/bin/cygpath -u \"$CYGWINDISTRIBDIR\"^)\" ; /usr/bin/tar -cvf repo.tar repo"
