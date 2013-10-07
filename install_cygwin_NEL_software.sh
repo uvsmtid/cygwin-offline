@@ -3,12 +3,14 @@
 # This normally applies to scripts which are expected to be on
 # server and client side for convenience (i.e. NELdata).
 
-UNIXCYGWINDISTRIBDIR="$(/usr/bin/cygpath -u $CYGWINDISTRIBDIR)"
-UNIXCYGWINROOTDIR="$(/usr/bin/cygpath -u $CYGWINROOTDIR)"
+set -x
+
+UNIXCYGWINDISTRIBDIR="$(/usr/bin/cygpath -u "$CYGWINDISTRIBDIR")"
+UNIXCYGWINROOTDIR="$(/usr/bin/cygpath -u "$CYGWINROOTDIR")"
 
 
 # Extract all files by tar to preserve permissions (especially executable)
-cd $UNIXCYGWINDISTRIBDIR
+cd "$UNIXCYGWINDISTRIBDIR"
 /usr/bin/tar -xvf repo.tar
 
 # Copy generic files to Cygwin filesystem's root
@@ -19,10 +21,10 @@ cd $UNIXCYGWINDISTRIBDIR
 
 
 # Copy `.vimrc` file to user's home to fix default `vim` installation inconvenient configuration
-/usr/bin/cp -arf $UNIXCYGWINDISTRIBDIR/repo/installer/.vimrc ~
+/usr/bin/cp -arf "$UNIXCYGWINDISTRIBDIR/repo/installer"/.vimrc ~
 
 # Copy `.bashrc` file to user's home to fix default `vim` installation inconvenient configuration
-/usr/bin/cp -arf $UNIXCYGWINDISTRIBDIR/repo/installer/.bashrc ~
+/usr/bin/cp -arf "$UNIXCYGWINDISTRIBDIR/repo/installer"/.bashrc ~
 
 
 # Create directory for temporary files under home

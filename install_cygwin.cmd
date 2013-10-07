@@ -4,18 +4,18 @@ REM This script automatically installs Cygwin and its components.
 
 REM Call script which defines common variables.
 REM "~dp0" is directory of the currently called script.
-call %~dp0common.cmd
+call "%~dp0common.cmd"
 
 
 REM Show hint for user.
-echo Specified distribution directory: %CYGWINDISTRIBDIR%
-echo Specified installation directory: %CYGWINROOTDIR%
+echo Specified distribution directory: "%CYGWINDISTRIBDIR%"
+echo Specified installation directory: "%CYGWINROOTDIR%"
 
 REM Set URL to Cygwin online distributive
 set SITEURL="http://mirrors.kernel.org/sourceware/cygwin/"
 
 REM Switch into installer directory (to avoid creating logs in the current one)
-cd %CYGWINDISTRIBDIR%\installer
+cd "%CYGWINDISTRIBDIR%\installer"
 
 REM Add Cygwin's bin directory to current user's PATH (to make DLL search successful) permanently
 REM Try to find if it has already been added before.
@@ -23,7 +23,7 @@ echo %PATH% | findstr /I /C:";%CYGWINBINDIR%;" > nul || setx PATH "%PATH%;%CYGWI
 
 REM Run the setup providing list of all required components.
 REM Note: the `^` character makes `cmd` interpreter concatenate lines.
-%CYGWINDISTRIBDIR%\installer\setup-x86_64.exe --packages ^
+"%CYGWINDISTRIBDIR%\installer\setup-x86_64.exe" --packages ^
 mintty,^
 bzip2,^
 unzip,^
@@ -56,12 +56,16 @@ xterm,^
 rsync,^
 nano,^
  --quiet-mode --local-install ^
- --local-package-dir %CYGWINDISTRIBDIR%\installer -R %CYGWINROOTDIR% --only-site --site %SITEURL%
+ --local-package-dir "%CYGWINDISTRIBDIR%\installer" ^
+ -R "%CYGWINROOTDIR%" ^
+ --only-site --site "%SITEURL%"
 
 REM Install NEL-specific software
-%CYGWINROOTDIR%\bin\bash.exe -c "$(/usr/bin/cygpath -u $CYGWINDISTRIBDIR)/repo/installer/install_cygwin_NEL_software.sh"
+"%CYGWINROOTDIR%\bin\bash.exe" -c "\"$^(/usr/bin/cygpath -u \"$CYGWINDISTRIBDIR\"^)\"/repo/installer/install_cygwin_NEL_software.sh"
 
 REM Run OpenSSH server installation script
-%CYGWINDISTRIBDIR%\repo\installer\setup_openssh.cmd
+"%CYGWINDISTRIBDIR%\repo\installer\setup_openssh.cmd"
 
+REM Switch to original directory (where the current script was called)
+cd "%~dp0"
 
