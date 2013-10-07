@@ -1,11 +1,10 @@
 @echo on
 REM This updates Cygwin zip package.
 
-set CYGWINROOTDIR=C:\cygwin64
-set CYGWINDISTRIBDIR=C:\cygwin.distrib
 
-set UNIXCYGWINDISTRIBDIR=/cygdrive/c/cygwin.distrib
-set UNIXCYGWINROOTDIR=/cygdrive/c/cygwin64
+REM Call script which defines common variables.
+REM "~dp0" is directory of the currently called script.
+call %~dp0common.cmd
 
 
 REM Show hint for user.
@@ -23,7 +22,7 @@ svn update installer
 svn update sys
 
 REM Archive all files by tar to preserve permissions (especially executable)
-%CYGWINROOTDIR%\bin\bash.exe -c "cd $UNIXCYGWINDISTRIBDIR ; tar -cvf repo.tar repo"
+%CYGWINROOTDIR%\bin\bash.exe -c "cd $(/usr/bin/cygpath -u $CYGWINDISTRIBDIR) ; tar -cvf repo.tar repo"
 
 REM TODO: Archive package content
 

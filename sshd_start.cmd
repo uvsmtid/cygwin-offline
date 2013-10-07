@@ -1,7 +1,11 @@
 @echo on
 REM This script starts OpenSSH daemon for Cygwin
 
-set CYGWINROOTDIR=C:\cygwin64
+
+REM Call script which defines common variables.
+REM "~dp0" is directory of the currently called script.
+call %~dp0common.cmd
+
 
 REM Show hint for user.
 echo Specified installation directory: %CYGWINROOTDIR%
