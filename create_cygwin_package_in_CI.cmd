@@ -1,5 +1,6 @@
 @echo on
-REM This updates Cygwin zip package.
+REM This updates Cygwin zip package (NEL updates only) inside conginous integration platform (CI).
+REM It relies on installed Cygwin on the machine where it is called.
 
 
 REM Call script which defines common variables.
