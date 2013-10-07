@@ -197,6 +197,21 @@
 # 
 # alias cd=cd_func
 
+###############################################################################
+# NEL
+
 alias vi="vim"
 alias ll="ls -l"
+
+# Aliases for quick jumps to specific directories:
+# - Cygwin distribution (Cygwin root directory is already easily accessible through /)
+alias cygwin="cd /cygdrive/c/cygwin.distrib"
+# - GWS installation
+alias gws="cd /cygdrive/d/nel-gws"
+
+# Give user some help
+echo "Type \"gws\" to switch into GWS installation directory \"D:\\nel-gws\\\"" 1>&2
+
+
+
 
