@@ -11,10 +11,10 @@ UNIXCYGWINROOTDIR="/cygdrive/c/cygwin64"
 cd $UNIXCYGWINDISTRIBDIR
 /usr/bin/tar -xvf repo.tar
 
-
 # Copy generic files to Cygwin filesystem's root
-/usr/bin/cp -r "$UNIXCYGWINDISTRIBDIR/repo/sys/generic"/* /
+/usr/bin/cp -arf "$UNIXCYGWINDISTRIBDIR/repo/sys/generic"/* /
 
 # Overwrite what was generic by Cygwin-specific files
-/usr/bin/cp -r "$UNIXCYGWINDISTRIBDIR/repo/sys/cygwin"/* /
+/usr/bin/cp -arf "$UNIXCYGWINDISTRIBDIR/repo/sys/cygwin"/* /
+
 
