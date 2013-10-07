@@ -95,8 +95,9 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NEL
+
 " - Disable mouse with visual mode to make it possible to copy & paste
 "   test through `vim`:
 set mouse-=a
@@ -105,4 +106,8 @@ set mouse-=a
 colorscheme elflord
 " - Enable syntax by default:
 syntax on
+" - Create backup and swap files in user's directory for temporary files
+set backupdir=~/tmp
+set dir=~/tmp
+
 
