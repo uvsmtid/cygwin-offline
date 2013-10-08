@@ -55,10 +55,15 @@ xeyes,^
 xterm,^
 rsync,^
 nano,^
- --quiet-mode --local-install ^
+libintl8,^
+libiconv2,^
+libncursesw10,^
+ --quiet-mode ^
+ --local-install ^
  --local-package-dir "%CYGWINDISTRIBDIR%\installer" ^
  -R "%CYGWINROOTDIR%" ^
- --only-site --site "%SITEURL%"
+ --only-site ^
+ --site "%SITEURL%"
 
 REM Install NEL-specific software
 "%CYGWINROOTDIR%\bin\bash.exe" -c "\"$^(/usr/bin/cygpath -u \"$CYGWINDISTRIBDIR\"^)\"/repo/installer/install_cygwin_NEL_software.sh"

@@ -51,10 +51,14 @@ xeyes,^
 xterm,^
 rsync,^
 nano,^
+libintl8,^
+libiconv2,^
+libncursesw10,^
  --download ^
  --local-package-dir "%CYGWINDISTRIBDIR%\installer" ^
  -R "%CYGWINROOTDIR%" ^
- --only-site --site %SITEURL%
+ --only-site ^
+ --site %SITEURL%
 
 
 REM Switch to original directory (where the current script was called)
