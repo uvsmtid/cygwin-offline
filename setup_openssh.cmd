@@ -13,9 +13,9 @@ REM Create directory for OpenSSH daemon configuration
 mkdir "%CYGWINROOTDIR%\home\sshd"
 
 REM Copy OpenSSH daemon configuration file
-copy "%CYGWINDISTRIBDIR%\repo\installer\sshd_config"        "%CYGWINROOTDIR%\home\sshd"
+copy "%CYGWINDISTRIBDIR%\repo\installer\sshd\sshd_config"        "%CYGWINROOTDIR%\home\sshd"
 
 REM Copy bat file to user's startup directory
-copy "%CYGWINDISTRIBDIR%\repo\installer\sshd_start.cmd"     "%USERPROFILE%"\"AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
+copy "%CYGWINDISTRIBDIR%\repo\installer\sshd\sshd_start.cmd"     "%USERPROFILE%"\"AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 
 
