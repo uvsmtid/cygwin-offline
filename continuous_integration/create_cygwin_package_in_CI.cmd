@@ -68,8 +68,8 @@ cd "%WORKING_DIR%"
 
 
 REM Remove base package, updated package and Cygwin distributive directory
-rm "%BASE_LOCAL_PACKAGE%"
-rm "%UPDATED_LOCAL_PACKAGE%"
+del /f /q "%BASE_LOCAL_PACKAGE%"
+del /f /q "%UPDATED_LOCAL_PACKAGE%"
 rmdir /s /q "%CYGWINDISTRIBDIR%"
 
 
