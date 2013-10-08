@@ -19,7 +19,7 @@ cd "%CYGWINDISTRIBDIR%\installer"
 
 REM Run the setup providing list of all required components.
 REM Note: the `^` character makes `cmd` interpreter concatenate lines.
-"%CYGWINDISTRIBDIR%\installer\setup-x86_64.exe" --packages ^
+"%CYGWINDISTRIBDIR%\installer\%CYGWINSETUPEXE%" --packages ^
 mintty,^
 bzip2,^
 unzip,^

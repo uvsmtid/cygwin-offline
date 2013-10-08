@@ -19,8 +19,21 @@ REM Set paths to remote and local base backages
 set BASE_REMOTE_PACKAGE=%SSH_ADDRESS%:%REMOTE_DIR%/base.cygwin.distrib.zip
 set BASE_LOCAL_PACKAGE=base.cygwin.distrib.zip
 
-REM Use fullpath to bash of local Cygwin installation
-set CYGWINROOTDIR=C:\cygwin64
+REM Define drive where Cygwin is supposed to be installed
+IF DEFINED CYGWIN_DRIVE (
+	REM Use drive provieded by %CYGWIN_DRIVE%
+) ELSE (
+	set CYGWIN_DRIVE=C
+)
+
+REM Cygwin root directory is hardcoded/fixed (it's a convention)
+IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
+        set CYGWINSETUPEXE=setup-x86.exe
+	set CYGWINROOTDIR=%CYGWIN_DRIVE%:\cygwin32
+) ELSE (
+	set CYGWINSETUPEXE=setup-x86_64.exe
+	set CYGWINROOTDIR=%CYGWIN_DRIVE%:\cygwin64
+)
 
 REM Set Cygwin distributive directory
 set CYGWINDISTRIBDIR=%WORKING_DIR%cygwin.distrib
