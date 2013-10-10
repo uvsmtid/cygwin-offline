@@ -5,6 +5,10 @@ REM This script downloads Cygwin and its components.
 REM Call script which defines common variables.
 REM "~dp0" is directory of the currently called script.
 call "%~dp0common.cmd"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 
 REM Show hint for user.
@@ -16,6 +20,10 @@ set SITEURL="http://mirrors.kernel.org/sourceware/cygwin/"
 
 REM Switch into installer directory (to avoid creating logs in the current one)
 cd "%CYGWINDISTRIBDIR%\installer"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 REM Run the setup providing list of all required components.
 REM Note: the `^` character makes `cmd` interpreter concatenate lines.
@@ -60,8 +68,16 @@ tree,^
  -R "%CYGWINROOTDIR%" ^
  --only-site ^
  --site %SITEURL%
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 
 REM Switch to original directory (where the current script was called)
 cd "%~dp0"
+F NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 

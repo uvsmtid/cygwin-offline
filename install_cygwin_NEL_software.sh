@@ -4,6 +4,7 @@
 # server and client side for convenience (i.e. NELdata).
 
 set -x
+set -e
 
 UNIXCYGWINDISTRIBDIR="$(/usr/bin/cygpath -u "$CYGWINDISTRIBDIR")"
 UNIXCYGWINROOTDIR="$(/usr/bin/cygpath -u "$CYGWINROOTDIR")"
@@ -11,7 +12,7 @@ UNIXCYGWINROOTDIR="$(/usr/bin/cygpath -u "$CYGWINROOTDIR")"
 
 # Extract all files by tar to preserve permissions (especially executable)
 cd "$UNIXCYGWINDISTRIBDIR"
-/usr/bin/tar -xvf repo.tar
+/usr/bin/tar -xvf --overwrite repo.tar
 
 # Copy generic files to Cygwin filesystem's root
 /usr/bin/cp -arf "$UNIXCYGWINDISTRIBDIR/repo/sys/generic"/* /

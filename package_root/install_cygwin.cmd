@@ -1,4 +1,6 @@
 REM This script is just a pointer to real installation script
-repo\installer\install_cygwin.cmd
-
-pause "press any key"
+call repo\installer\install_cygwin.cmd
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)

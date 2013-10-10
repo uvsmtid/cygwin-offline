@@ -45,18 +45,38 @@ set CYGWINDISTRIBDIR=%WORKING_DIR%cygwin.distrib
 
 REM Remove existing (possibly residual) Cygwin distributive directory
 rmdir /s /q "%CYGWINDISTRIBDIR%"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 REM Download base package
 "%CYGWINROOTDIR%\bin\bash.exe" -c "cd \"$^(/usr/bin/cygpath -u \"$WORKING_DIR\"^)\" ; /usr/bin/scp \"$BASE_REMOTE_PACKAGE\" \"$BASE_LOCAL_PACKAGE\""
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 REM Unpack base package
 "%CYGWINROOTDIR%\bin\bash.exe" -c "cd \"$^(/usr/bin/cygpath -u \"$WORKING_DIR\"^)\" ; /usr/bin/unzip \"$BASE_LOCAL_PACKAGE\""
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 REM Run offline updates inside the package
 call "%CYGWINDISTRIBDIR%\repo\installer\update_cygwin_distribution_dir_repo_only.cmd"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 REM Pack updates and capture the single-line output with archive name
 for /f %%i in ('"%CYGWINDISTRIBDIR%\repo\installer\zip_package.cmd"') do set UPDATED_LOCAL_PACKAGE=%%i
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 echo %UPDATED_LOCAL_PACKAGE%
 
 REM Set remote path for updated package
@@ -64,18 +84,42 @@ set UPDATED_REMOTE_PACKAGE=%SSH_ADDRESS%:%REMOTE_DIR%/%UPDATED_LOCAL_PACKAGE%
 
 REM Switch to original directory (where the current script was called)
 cd "%WORKING_DIR%"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 REM Upload base package automatically and set its permissions to be readable
 "%CYGWINROOTDIR%\bin\bash.exe" -c "cd \"$^(/usr/bin/cygpath -u \"$WORKING_DIR\"^)\" ; /usr/bin/scp \"$UPDATED_LOCAL_PACKAGE\" \"$UPDATED_REMOTE_PACKAGE\""
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 REM Switch to original directory (where the current script was called)
 cd "%WORKING_DIR%"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 
 REM Remove base package, updated package and Cygwin distributive directory
 del /f /q "%BASE_LOCAL_PACKAGE%"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 del /f /q "%UPDATED_LOCAL_PACKAGE%"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 rmdir /s /q "%CYGWINDISTRIBDIR%"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 
 

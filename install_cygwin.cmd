@@ -16,6 +16,10 @@ set SITEURL="http://mirrors.kernel.org/sourceware/cygwin/"
 
 REM Switch into installer directory (to avoid creating logs in the current one)
 cd "%CYGWINDISTRIBDIR%\installer"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 REM Add Cygwin's bin directory to current user's PATH (to make DLL search successful) permanently
 REM Try to find if it has already been added before.
@@ -65,13 +69,29 @@ tree,^
  -R "%CYGWINROOTDIR%" ^
  --only-site ^
  --site "%SITEURL%"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 REM Install NEL-specific software
 "%CYGWINROOTDIR%\bin\bash.exe" -c "\"$^(/usr/bin/cygpath -u \"$CYGWINDISTRIBDIR\"^)\"/repo/installer/install_cygwin_NEL_software.sh"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 REM Run OpenSSH server installation script
-"%CYGWINDISTRIBDIR%\repo\installer\setup_openssh.cmd"
+call "%CYGWINDISTRIBDIR%\repo\installer\setup_openssh.cmd"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
 REM Switch to original directory (where the current script was called)
 cd "%~dp0"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
 
