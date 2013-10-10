@@ -12,7 +12,7 @@ UNIXCYGWINROOTDIR="$(/usr/bin/cygpath -u "$CYGWINROOTDIR")"
 
 # Extract all files by tar to preserve permissions (especially executable)
 cd "$UNIXCYGWINDISTRIBDIR"
-/usr/bin/tar -xvf --overwrite repo.tar
+/usr/bin/tar --overwrite -xvf repo.tar
 
 # Copy generic files to Cygwin filesystem's root
 /usr/bin/cp -arf "$UNIXCYGWINDISTRIBDIR/repo/sys/generic"/* /
