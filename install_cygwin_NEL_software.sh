@@ -7,7 +7,6 @@ set -x
 set -e
 
 UNIXCYGWINDISTRIBDIR="$(/usr/bin/cygpath -u "$CYGWINDISTRIBDIR")"
-UNIXCYGWINROOTDIR="$(/usr/bin/cygpath -u "$CYGWINROOTDIR")"
 
 
 # Extract all files by tar to preserve permissions (especially executable)

@@ -6,7 +6,6 @@ set -e
 set -x
 
 UNIXCYGWINDISTRIBDIR="$(/usr/bin/cygpath -u "$CYGWINDISTRIBDIR")"
-UNIXCYGWINROOTDIR="$(/usr/bin/cygpath -u "$CYGWINROOTDIR")"
 
 PACKAGE_NAME="$(/usr/bin/date '+%Y-%m-%d-T%H-%M-%S.%N').cygwin.distrib.zip"
 
