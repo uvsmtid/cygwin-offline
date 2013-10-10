@@ -21,12 +21,12 @@ IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
     EXIT /B 1
 )
-svn update installer
+"%CYGWINROOTDIR%\bin\bash.exe" -c "/usr/bin/svn update installer"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
     EXIT /B 1
 )
-svn update sys
+"%CYGWINROOTDIR%\bin\bash.exe" -c "/usr/bin/svn update sys"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
     EXIT /B 1
@@ -38,7 +38,7 @@ IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
     EXIT /B 1
 )
-svn update .
+"%CYGWINROOTDIR%\bin\bash.exe" -c "/usr/bin/svn update ."
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
     EXIT /B 1
