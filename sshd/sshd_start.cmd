@@ -8,6 +8,7 @@ IF DEFINED CYGWIN_DRIVE (
 ) ELSE (
 	set CYGWIN_DRIVE=C
 )
+echo CYGWIN_DRIVE=%CYGWIN_DRIVE%
 
 REM Cygwin root directory is hardcoded/fixed (it's a convention)
 IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
@@ -17,6 +18,8 @@ IF "%PROCESSOR_ARCHITECTURE%"=="x86" (
 	set CYGWINSETUPEXE=setup-x86_64.exe
 	set CYGWINROOTDIR=%CYGWIN_DRIVE%:\cygwin64
 )
+echo CYGWINSETUPEXE=%CYGWINSETUPEXE%
+echo CYGWINROOTDIR=%CYGWINROOTDIR%
 
 
 REM Show hint for user.
