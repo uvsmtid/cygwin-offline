@@ -63,6 +63,7 @@ libintl8,^
 libiconv2,^
 libncursesw10,^
 tree,^
+dos2unix,^
  --download ^
  --local-package-dir "%CYGWINDISTRIBDIR%\installer" ^
  -R "%CYGWINROOTDIR%" ^

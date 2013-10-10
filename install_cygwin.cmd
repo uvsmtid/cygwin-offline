@@ -63,6 +63,7 @@ libintl8,^
 libiconv2,^
 libncursesw10,^
 tree,^
+dos2unix,^
  --quiet-mode ^
  --local-install ^
  --local-package-dir "%CYGWINDISTRIBDIR%\installer" ^
