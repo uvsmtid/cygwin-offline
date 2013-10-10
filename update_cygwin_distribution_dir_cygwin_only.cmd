@@ -54,6 +54,7 @@ nano,^
 libintl8,^
 libiconv2,^
 libncursesw10,^
+tree,^
  --download ^
  --local-package-dir "%CYGWINDISTRIBDIR%\installer" ^
  -R "%CYGWINROOTDIR%" ^

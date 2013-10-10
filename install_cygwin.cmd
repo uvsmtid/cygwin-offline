@@ -58,6 +58,7 @@ nano,^
 libintl8,^
 libiconv2,^
 libncursesw10,^
+tree,^
  --quiet-mode ^
  --local-install ^
  --local-package-dir "%CYGWINDISTRIBDIR%\installer" ^
