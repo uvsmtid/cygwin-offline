@@ -21,6 +21,9 @@ IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
     EXIT /B 1
 )
+
+# Switch off echo (only single line output is allowed)
+@echo off
 "%CYGWINROOTDIR%\bin\bash.exe" -c "\"$^(/usr/bin/cygpath -u \"$CYGWINDISTRIBDIR\"^)\"/repo/installer/zip_cygwin_distrib.sh"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%

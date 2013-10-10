@@ -73,7 +73,7 @@ IF NOT %errorlevel%==0 (
     EXIT /B 1
 )
 
-REM Pack updates and capture the single-line output with archive name
+REM Pack updates and capture the last line of the output with archive name
 for /f %%i in ('"%CYGWINDISTRIBDIR%\repo\installer\zip_package.cmd"') do set UPDATED_LOCAL_PACKAGE=%%i
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
