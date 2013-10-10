@@ -2,7 +2,10 @@
 
 set -x
 set -e
+set -u
 
+# First parameter is value of %USERPROFILE% (in cmd Windows)
+USERPROFILE="$1"
 UNIXCYGWINDISTRIBDIR="$(/usr/bin/cygpath -u "$CYGWINDISTRIBDIR")"
 UNIXUSERPROFILE="$(/usr/bin/cygpath -u "$USERPROFILE")"
 

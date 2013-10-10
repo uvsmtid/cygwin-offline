@@ -13,7 +13,7 @@ REM Show hint for user.
 echo Specified installation directory: "%CYGWINROOTDIR%"
 echo Specified distribution directory: "%CYGWINDISTRIBDIR%"
 
-"%CYGWINROOTDIR%\bin\bash.exe" -c "\"$^(/usr/bin/cygpath -u \"$CYGWINDISTRIBDIR\"^)\"/repo/installer/setup_openssh.sh"
+"%CYGWINROOTDIR%\bin\bash.exe" -c "\"$^(/usr/bin/cygpath -u \"$CYGWINDISTRIBDIR\"^)\"/repo/installer/setup_openssh.sh %USERPROFILE%"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
     EXIT /B 1
