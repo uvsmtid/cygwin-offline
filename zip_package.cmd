@@ -27,4 +27,12 @@ IF NOT %errorlevel%==0 (
     EXIT /B 1
 )
 
+REM Switch to original directory (where the current script was called)
+cd "%~dp0"
+IF NOT %errorlevel%==0 (
+    echo "Command returned: " %errorlevel%
+    EXIT /B 1
+)
+
+
 
