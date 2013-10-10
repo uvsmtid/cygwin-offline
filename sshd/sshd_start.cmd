@@ -17,6 +17,8 @@ IF NOT "%PROCESSOR_ARCHITECTURE%"=="x86" (
 ) ELSE (
     set CYGWINSETUPEXE=setup-x86.exe
     set CYGWINROOTDIR=%CYGWIN_DRIVE%:\cygwin32
+    echo "32 bit is not supported"
+    EXIT /B 1
 )
 echo CYGWINSETUPEXE=%CYGWINSETUPEXE%
 echo CYGWINROOTDIR=%CYGWINROOTDIR%
