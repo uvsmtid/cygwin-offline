@@ -62,6 +62,7 @@ nano,^
 libintl8,^
 libiconv2,^
 libncursesw10,^
+libreadline7,^
 tree,^
 dos2unix,^
  --quiet-mode ^

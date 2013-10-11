@@ -8,6 +8,8 @@ set -e
 
 UNIXCYGWINDISTRIBDIR="$(/usr/bin/cygpath -u "$CYGWINDISTRIBDIR")"
 
+# Create user's directory
+mkdir -p "/home/$USERNAME"
 
 # Extract all files by tar to preserve permissions (especially executable)
 cd "$UNIXCYGWINDISTRIBDIR"
