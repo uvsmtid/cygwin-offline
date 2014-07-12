@@ -1,0 +1,11 @@
+
+# Ignore Cygwin setup utilities.
+/setup-x86.exe
+/setup-x86_64.exe
+
+
+# Actually, ignore everything except README.md and .gitignore itself.
+/*
+!/README.md
+!/.gitignore
+
