@@ -4,8 +4,8 @@
 /setup-x86_64.exe
 
 
-# Actually, ignore everything except README.md and .gitignore itself.
+# Actually, ignore everything except readme.md and .gitignore itself.
 /*
-!/README.md
+!/readme.md
 !/.gitignore
 

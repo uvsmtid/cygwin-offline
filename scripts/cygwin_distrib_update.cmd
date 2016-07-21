@@ -25,6 +25,7 @@ IF NOT %errorlevel%==0 (
 
 REM Run the setup providing list of all required components.
 REM Note: the `^` character makes `cmd` interpreter concatenate lines.
+REM TODO: Take list of packages from configuration file (instead of hardcoding it).
 "%CYGWIN_DISTRIB_DIR%\%CYGWIN_SETUP_EXE%" --packages ^
 mintty,^
 bzip2,^
