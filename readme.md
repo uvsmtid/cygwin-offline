@@ -8,9 +8,9 @@ by pre-packaging it in advance.
 *   Simple straightforward workflow.
 *   TODO: Automatic setup of SSH service.
 *   No dependencies on software external to Windows.
-*   Package selection to slim down the distributive. 
+*   Package selection to slim down the distributive.
 *   Support for unattended (automated) installation.
-*   Tested using [Wine][3] on Linux. 
+*   TODO: Tested using [Wine][3] on Linux.
 *   Automatic detection of 32/64 bit architectures.
 
 ## Configure list of selected Cygwin packages ##
@@ -27,8 +27,7 @@ TODO:
 Implement support for external configuration file
 providing list of selected packages.
 
-
-## Update Cygwin from Internet ##
+## Update Cygwin content from Internet ##
 
 ```
 update.cmd
@@ -40,7 +39,7 @@ and create a zip archive for offline installation by `install.cmd` (above).
 The command starts Cygwin setup in _interactive_ mode (with GUI).
 
 TODO:
-Add support to run this command in _unattended_ mode as well.
+Add support to run this command in _unattended_ mode (in CI) as well.
 
 It relies on availability of official Cygwin installers
 (depending on the platform architecture used)
@@ -52,13 +51,10 @@ distrib/setup-x86_64.exe
 ```
 
 TODO:
-These files can be downloaded automatically by implementing
+Files `setup-*.exe` can be downloaded automatically by implementing
 [`scripts/download_setup.cmd`][4] script.
 
-TODO:
-Split `update.cmd` from archiving resposibility - use separate script instead.
-
-## (optional) Archive content into single distributive file ##
+## Archive Cygwin content into single distributive file ##
 
 ```
 archive.cmd
@@ -66,7 +62,7 @@ archive.cmd
 
 TODO:
 Implement archiving downloaded content. It is currently not done.
-See [`scripts/zip_package.cmd`][6] for more info.
+See [`scripts/zip_archive.cmd`][6] for more info.
 
 ## Install Cygwin without Internet connectivity ##
 
@@ -85,8 +81,17 @@ When run on Linux using [Wine][3], use the following commands correspondingly:
 
 ```
 wine cmd.exe /C update.cmd
+wine cmd.exe /C archive.cmd
 wine cmd.exe /C install.cmd
 ```
+
+NOTE:
+It is also possible to perform download via proxy server.
+Make sure to use right credentials for authentication (if required) -
+proxy setup may be selective about allowed content per user.
+
+TODO:
+Does it make sense to make `install.cmd` script work on Linux with Wine?
 
 ---
 
@@ -95,5 +100,5 @@ wine cmd.exe /C install.cmd
 [3]: https://www.winehq.org/
 [4]: /scripts/download_setup.cmd
 [5]: /scripts/cygwin_distrib_update.cmd
-[6]: /scripts/zip_package.cmd
+[6]: /scripts/zip_archive.cmd
 
