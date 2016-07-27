@@ -5,12 +5,12 @@ by pre-packaging it in advance.
 
 ## Features ##
 
+*   Download on Linux (using [Wine][3]) - Deploy on Windows.
 *   Simple straightforward workflow.
 *   TODO: Automatic setup of SSH service.
 *   No dependencies on software external to Windows.
 *   Package selection to slim down the distributive.
 *   Support for unattended (automated) installation.
-*   TODO: Tested using [Wine][3] on Linux.
 *   Automatic detection of 32/64 bit architectures.
 
 ## Configure list of selected Cygwin packages ##
