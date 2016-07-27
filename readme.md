@@ -60,6 +60,9 @@ Files `setup-*.exe` can be downloaded automatically by implementing
 archive.cmd
 ```
 
+This script will archive entire content of this directory
+with root of the archive matching root of this repository.
+
 TODO:
 Implement archiving downloaded content. It is currently not done.
 See [`scripts/zip_archive.cmd`][6] for more info.
