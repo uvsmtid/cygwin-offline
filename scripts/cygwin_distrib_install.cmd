@@ -68,6 +68,7 @@ tree,^
 dos2unix,^
  --quiet-mode ^
  --local-install ^
+ --wait ^
  --local-package-dir "%CYGWIN_DISTRIB_DIR%" ^
  -R "%CYGWIN_ROOT_DIR%" ^
  --only-site ^

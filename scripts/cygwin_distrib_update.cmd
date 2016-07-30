@@ -67,6 +67,7 @@ libreadline7,^
 tree,^
 dos2unix,^
  --download ^
+ --wait ^
  --local-package-dir "%CYGWIN_DISTRIB_DIR%" ^
  -R "%CYGWIN_ROOT_DIR%" ^
  --only-site ^
