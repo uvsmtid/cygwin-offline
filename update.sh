@@ -5,6 +5,6 @@ set -e
 
 scripts/download_setup.sh
 
-wine cmd.exe /C scripts/cygwin_distrib_update.cmd
+wine cmd.exe /C start /b /i /wait scripts/cygwin_distrib_update.cmd
 
 

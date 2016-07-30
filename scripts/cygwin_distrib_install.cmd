@@ -6,6 +6,7 @@ REM "~dp0" is directory of the currently called script.
 call "%~dp0header.cmd"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
+    REM This is not a top-level script. Use `/B` for `EXIT`.
     EXIT /B 1
 )
 
@@ -20,11 +21,13 @@ REM Switch into installer directory (to avoid creating logs in the current one).
 cd "%CYGWIN_DISTRIB_DIR%"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
+    REM This is not a top-level script. Use `/B` for `EXIT`.
     EXIT /B 1
 )
 
 REM Run the setup providing list of all required components.
 REM Note: the `^` character makes `cmd` interpreter concatenate lines.
+REM TODO: Take list of packages from configuration file (instead of hardcoding it).
 "%CYGWIN_DISTRIB_DIR%\%CYGWIN_SETUP_EXE%" --packages ^
 mintty,^
 bzip2,^
@@ -71,6 +74,7 @@ dos2unix,^
  --site "%MIRROR_URL%"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
+    REM This is not a top-level script. Use `/B` for `EXIT`.
     EXIT /B 1
 )
 
@@ -82,6 +86,10 @@ REM Switch to original directory (where the current script was called)
 cd "%~dp0"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
+    REM This is not a top-level script. Use `/B` for `EXIT`.
     EXIT /B 1
 )
+
+REM This is not a top-level script. Use `/B` for `EXIT`.
+EXIT /B 0
 

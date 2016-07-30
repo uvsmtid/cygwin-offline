@@ -6,6 +6,7 @@ REM "~dp0" is directory of the currently called script.
 call "%~dp0header.cmd"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
+    REM This is not a top-level script. Use `/B` for `EXIT`.
     EXIT /B 1
 )
 
@@ -14,12 +15,13 @@ echo Specified distribution directory: "%CYGWIN_DISTRIB_DIR%"
 echo Specified installation directory: "%CYGWIN_ROOT_DIR%"
 
 REM Set URL to Cygwin online distributive.
-set MIRROR_URL=http://mirrors.kernel.org/sourceware/cygwin/
+set MIRROR_URL="http://mirrors.kernel.org/sourceware/cygwin/"
 
 REM Switch into installer directory (to avoid creating logs in the current one).
 cd "%CYGWIN_DISTRIB_DIR%"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
+    REM This is not a top-level script. Use `/B` for `EXIT`.
     EXIT /B 1
 )
 
@@ -71,6 +73,7 @@ dos2unix,^
  --site "%MIRROR_URL%"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
+    REM This is not a top-level script. Use `/B` for `EXIT`.
     EXIT /B 1
 )
 
@@ -78,6 +81,10 @@ REM Switch to original directory (where the current script was called)
 cd "%~dp0"
 IF NOT %errorlevel%==0 (
     echo "Command returned: " %errorlevel%
+    REM This is not a top-level script. Use `/B` for `EXIT`.
     EXIT /B 1
 )
+
+REM This is not a top-level script. Use `/B` for `EXIT`.
+EXIT /B 0
 
