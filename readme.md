@@ -27,10 +27,10 @@ TODO:
 Implement support for external configuration file
 providing list of selected packages.
 
-## Update Cygwin content from Internet ##
+## Update Cygwin content from Internet on Linux ##
 
 ```
-update.cmd
+update.sh
 ```
 
 This command will pre-download Cygwin content into [`distrib`][2] directory
@@ -54,7 +54,7 @@ TODO:
 Files `setup-*.exe` can be downloaded automatically by implementing
 [`scripts/download_setup.cmd`][4] script.
 
-## Archive Cygwin content into single distributive file ##
+## Archive Cygwin content into single distributive file on Linux ##
 
 ```
 archive.cmd
@@ -67,26 +67,20 @@ TODO:
 Implement archiving downloaded content. It is currently not done.
 See [`scripts/zip_archive.cmd`][6] for more info.
 
-## Install Cygwin without Internet connectivity ##
+## Install Cygwin without Internet connectivity on Windows ##
 
 ```
 install.cmd
 ```
 
 This command will use pre-downloaded Cygwin content from [`distrib`][2]
-directory prepared by `update.cmd` (below) for offline installation.
+directory prepared by `update.sh` (below) for offline installation.
 
 The command is starts Cygwin setup in _unattendant_ mode (without GUI).
 
 ## Run commands using Wine ##
 
-When run on Linux using [Wine][3], use the following commands correspondingly:
-
-```
-wine cmd.exe /C update.cmd
-wine cmd.exe /C archive.cmd
-wine cmd.exe /C install.cmd
-```
+When run on Linux, [Wine][3] is used.
 
 NOTE:
 It is also possible to perform download via proxy server.
