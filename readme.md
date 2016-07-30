@@ -50,10 +50,6 @@ distrib/setup-x86.exe
 distrib/setup-x86_64.exe
 ```
 
-TODO:
-Files `setup-*.exe` can be downloaded automatically by implementing
-[`scripts/download_setup.cmd`][4] script.
-
 ## Archive Cygwin content into single distributive file on Linux ##
 
 ```
@@ -87,15 +83,11 @@ It is also possible to perform download via proxy server.
 Make sure to use right credentials for authentication (if required) -
 proxy setup may be selective about allowed content per user.
 
-TODO:
-Does it make sense to make `install.cmd` script work on Linux with Wine?
-
 ---
 
 [1]: https://www.cygwin.com/
 [2]: /distrib
 [3]: https://www.winehq.org/
-[4]: /scripts/download_setup.cmd
 [5]: /scripts/cygwin_distrib_update.cmd
 [6]: /scripts/zip_archive.cmd
 
