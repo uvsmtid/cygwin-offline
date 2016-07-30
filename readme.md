@@ -1,17 +1,24 @@
 
+## Workflow ##
+
 The commands below allow
 offline [Cygwin][1] installation
 by pre-packaging it in advance.
 
+The workflow is simple:
+
+*   Linux: `update.sh`
+*   Linux: `archive.sh`
+*   Windows: `install.cmd`
+
 ## Features ##
 
-*   Download on Linux (using [Wine][3]) - Deploy on Windows.
+*   Ideal for those who meet Windows only in virtual machines.
+*   Download on Linux (using [Wine][3]), deploy on Windows.
 *   Simple straightforward workflow.
-*   TODO: Automatic setup of SSH service.
-*   No dependencies on software external to Windows.
-*   Package selection to slim down the distributive.
+*   No dependencies on software external to Windows during installation.
 *   Support for unattended (automated) installation.
-*   Automatic detection of 32/64 bit architectures.
+*   Support only for 64 bit Linux/Windows versions.
 
 ## Configure list of selected Cygwin packages ##
 
@@ -27,10 +34,10 @@ TODO:
 Implement support for external configuration file
 providing list of selected packages.
 
-## Update Cygwin content from Internet ##
+## Update Cygwin content from Internet on Linux ##
 
 ```
-update.cmd
+update.sh
 ```
 
 This command will pre-download Cygwin content into [`distrib`][2] directory
@@ -50,11 +57,7 @@ distrib/setup-x86.exe
 distrib/setup-x86_64.exe
 ```
 
-TODO:
-Files `setup-*.exe` can be downloaded automatically by implementing
-[`scripts/download_setup.cmd`][4] script.
-
-## Archive Cygwin content into single distributive file ##
+## Archive Cygwin content into single distributive file on Linux ##
 
 ```
 archive.cmd
@@ -67,41 +70,38 @@ TODO:
 Implement archiving downloaded content. It is currently not done.
 See [`scripts/zip_archive.cmd`][6] for more info.
 
-## Install Cygwin without Internet connectivity ##
+## Install Cygwin without Internet connectivity on Windows ##
 
 ```
 install.cmd
 ```
 
 This command will use pre-downloaded Cygwin content from [`distrib`][2]
-directory prepared by `update.cmd` (below) for offline installation.
+directory prepared by `update.sh` (below) for offline installation.
 
 The command is starts Cygwin setup in _unattendant_ mode (without GUI).
 
-## Run commands using Wine ##
+## Run commands on Linux using Wine ##
 
-When run on Linux using [Wine][3], use the following commands correspondingly:
+When run on Linux, [Wine][3] is used.
+
+Install Wine, for example on Fedora 24:
 
 ```
-wine cmd.exe /C update.cmd
-wine cmd.exe /C archive.cmd
-wine cmd.exe /C install.cmd
+sudo dnf install -y wine
 ```
 
-NOTE:
+## Pre-downloading packages via proxy ##
+
 It is also possible to perform download via proxy server.
 Make sure to use right credentials for authentication (if required) -
 proxy setup may be selective about allowed content per user.
-
-TODO:
-Does it make sense to make `install.cmd` script work on Linux with Wine?
 
 ---
 
 [1]: https://www.cygwin.com/
 [2]: /distrib
 [3]: https://www.winehq.org/
-[4]: /scripts/download_setup.cmd
 [5]: /scripts/cygwin_distrib_update.cmd
 [6]: /scripts/zip_archive.cmd
 
