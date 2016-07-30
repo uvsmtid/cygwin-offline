@@ -1,17 +1,24 @@
 
+## Workflow ##
+
 The commands below allow
 offline [Cygwin][1] installation
 by pre-packaging it in advance.
 
+The workflow is simple:
+
+*   Linux: `update.sh`
+*   Linux: `archive.sh`
+*   Windows: `install.cmd`
+
 ## Features ##
 
-*   Download on Linux (using [Wine][3]) - Deploy on Windows.
+*   Ideal for those who meet Windows only in virtual machines.
+*   Download on Linux (using [Wine][3]), deploy on Windows.
 *   Simple straightforward workflow.
-*   TODO: Automatic setup of SSH service.
-*   No dependencies on software external to Windows.
-*   Package selection to slim down the distributive.
+*   No dependencies on software external to Windows during installation.
 *   Support for unattended (automated) installation.
-*   Automatic detection of 32/64 bit architectures.
+*   Support only for 64 bit Linux/Windows versions.
 
 ## Configure list of selected Cygwin packages ##
 
@@ -74,11 +81,18 @@ directory prepared by `update.sh` (below) for offline installation.
 
 The command is starts Cygwin setup in _unattendant_ mode (without GUI).
 
-## Run commands using Wine ##
+## Run commands on Linux using Wine ##
 
 When run on Linux, [Wine][3] is used.
 
-NOTE:
+Install Wine, for example on Fedora 24:
+
+```
+sudo dnf install -y wine
+```
+
+## Pre-downloading packages via proxy ##
+
 It is also possible to perform download via proxy server.
 Make sure to use right credentials for authentication (if required) -
 proxy setup may be selective about allowed content per user.
