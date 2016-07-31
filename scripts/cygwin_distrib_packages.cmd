@@ -1,5 +1,6 @@
 @echo on
-REM This script quietly downloads Cygwin and its components.
+REM This script runs Cygwin setup with GUI.
+REM It is only used for package list selection and testing.
 
 REM Call script which defines common variables.
 REM "~dp0" is directory of the currently called script.
@@ -25,16 +26,10 @@ IF NOT %errorlevel%==0 (
     EXIT /B 1
 )
 
-REM Read contents of first line in the file into environment variable.
-REM See: http://stackoverflow.com/a/3069068/441652
-SET /p SELECTED_PACKAGES=<"%CYGWIN_DISTRIB_DIR%\packages.line.conf"
-
 REM Run the setup providing list of all required components.
 REM Note: the `^` character makes `cmd` interpreter concatenate lines.
 REM TODO: Take list of packages from configuration file (instead of hardcoding it).
 "%CYGWIN_DISTRIB_DIR%\%CYGWIN_SETUP_EXE%" ^
- --packages "%SELECTED_PACKAGES%" ^
- --quiet-mode ^
  --download ^
  --wait ^
  --local-package-dir "%CYGWIN_DISTRIB_DIR%" ^

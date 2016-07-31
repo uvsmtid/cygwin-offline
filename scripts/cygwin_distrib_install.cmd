@@ -1,5 +1,5 @@
 @echo on
-REM This script automatically installs Cygwin and its components.
+REM This script quietly installs Cygwin and its components.
 
 REM Call script which defines common variables.
 REM "~dp0" is directory of the currently called script.

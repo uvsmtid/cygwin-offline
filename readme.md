@@ -28,6 +28,15 @@ Modify list of packages for download:
 packages.conf
 ```
 
+The names of available packages to select from can be found in `Packages`
+column during selection of packages in Cygwin installer run with GUI.
+Script `packages.sh` starts Cygwin installer with GUI exactly for
+the purpose of reviewing available packages to list them in `packages.conf`:
+
+```
+packages.sh
+```
+
 NOTE:
 Script `install.cmd` will install list of packages specified
 _before_ `update.sh` is run rather than consulting `pakcages.conf` again
@@ -40,13 +49,11 @@ See also comments in [`packages.conf`][6].
 update.sh
 ```
 
-This command will pre-download Cygwin content into [`distrib`][2] directory
-and create a zip archive for offline installation by `install.cmd` (above).
+This command will pre-download Cygwin content under [`distrib`][2] directory.
 
-The command starts Cygwin setup in _interactive_ mode (with GUI).
-
-TODO:
-Add support to run this command in _unattended_ mode (in CI) as well.
+The command starts Cygwin setup in _unattended_ mode (without GUI)
+and downloads all packages (with their dependencies)
+listed in [`packages.conf`][6] file.
 
 It relies on availability of official Cygwin installers
 (depending on the platform architecture used)
