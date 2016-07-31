@@ -60,15 +60,11 @@ distrib/setup-x86_64.exe
 ## Archive Cygwin content into single distributive file on Linux ##
 
 ```
-archive.cmd
+archive.sh
 ```
 
 This script will archive entire content of this directory
 with root of the archive matching root of this repository.
-
-TODO:
-Implement archiving downloaded content. It is currently not done.
-See [`scripts/zip_archive.cmd`][6] for more info.
 
 ## Install Cygwin without Internet connectivity on Windows ##
 
@@ -103,5 +99,4 @@ proxy setup may be selective about allowed content per user.
 [2]: /distrib
 [3]: https://www.winehq.org/
 [5]: /scripts/cygwin_distrib_update.cmd
-[6]: /scripts/zip_archive.cmd
 
