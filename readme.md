@@ -1,23 +1,24 @@
 
-## Workflow ##
-
-The commands below allow
-offline [Cygwin][1] installation
-by pre-packaging it in advance.
-
-The workflow is simple:
-
-*   Linux: `update.sh`
-*   Linux: `archive.sh`
-*   Windows: `install.cmd`
+This project allows
+offline [Cygwin][1] installation on Windows
+by pre-downloading it in advance on Linux (using [Wine][3]).
 
 ## Features ##
 
-*   Ideal for those who meet Windows only in virtual machines.
-*   Download on Linux (using [Wine][3]), deploy on Windows.
+*   Ideal for those who wants to meet Windows only in virtual machines.
+
+    *   Download on Linux.
+    *   Deploy on Windows.
+
 *   Simple straightforward workflow.
+
+    *   Linux: `packages.sh` (optional)
+    *   Linux: `update.sh`
+    *   Linux: `archive.sh` (optional)
+    *   Windows: `install.cmd`
+
 *   No dependencies on software external to Windows during installation.
-*   Support for unattended (automated) installation.
+*   Support for unattended (non-interactive) installation.
 *   Support only for 64 bit Linux/Windows versions.
 
 ## Configure list of selected Cygwin packages ##
@@ -55,12 +56,10 @@ The command starts Cygwin setup in _unattended_ mode (without GUI)
 and downloads all packages (with their dependencies)
 listed in [`packages.conf`][6] file.
 
-It relies on availability of official Cygwin installers
-(depending on the platform architecture used)
-placed in the following paths relative to the root of this repository:
+It also automatically downloads official Cygwin installer
+placed in the following path relative to the root of this repository:
 
 ```
-distrib/setup-x86.exe
 distrib/setup-x86_64.exe
 ```
 
@@ -80,9 +79,10 @@ install.cmd
 ```
 
 This command will use pre-downloaded Cygwin content from [`distrib`][2]
-directory prepared by `update.sh` (below) for offline installation.
+directory prepared by `update.sh` for offline installation.
 
-The command is starts Cygwin setup in _unattendant_ mode (without GUI).
+The command is starts Cygwin setup in _unattendant_ mode
+and installs everything (without GUI).
 
 ## Run commands on Linux using Wine ##
 
@@ -100,10 +100,50 @@ It is also possible to perform download via proxy server.
 Make sure to use right credentials for authentication (if required) -
 proxy setup may be selective about allowed content per user.
 
+## Changelog ##
+
+*   `v1.0.0`
+
+    *   Make list of packages configurable in [`packages.conf`][6] file.
+
+    *   Fixed hang (due to command line switch into interactive mode)
+        at the end of the installation if `cmd /wait install.cmd` is used.
+
+    *   Tag archived package using the following format:
+
+        ```
+        cygwin-offline.git-v[REPO_TAG]-[COMMITS_SINCE_TAG]-g[GIT_COMMIT_HASH]-[dirty].cygwin-v[CYGWIN_VERSION.zip
+        ```
+
+        For example:
+
+        ```
+        cygwin-offline.git-v0.0.0-11-g9127328-dirty.cygwin-v2.5.2.zip
+        cygwin-offline.git-v0.0.0-11-g9127328.cygwin-v2.5.2.zip
+        ```
+
+    *   Split unattended and interactive mode of Cygwin setup
+        into `packages.sh` and `update.sh` scripts.
+
+    *   Clean up directories from obsolete and unsopported scripts.
+
+
+*   `v0.0.0`
+
+    Initial version after spin-off.
+
+    It worked for download-install cycle.
+
+    It was tested on clean Windows 2012 R2 in
+    [`windows-server-2012-R2-gui`][4] Vagrant box.
+
 ---
 
 [1]: https://www.cygwin.com/
 [2]: /distrib
 [3]: https://www.winehq.org/
+[4]: https://github.com/uvsmtid/vagrant-boxes/tree/develop/windows-server-2012-R2-gui
 [5]: /scripts/cygwin_distrib_update.cmd
+[6]: /packages.conf
+
 
