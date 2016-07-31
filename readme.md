@@ -22,17 +22,17 @@ The workflow is simple:
 
 ## Configure list of selected Cygwin packages ##
 
-NOTE:
-The project aims at providing specially built Cygwin distribution.
-Currently list of packages is hardcoded inside
-[`scripts/cygwin_distrib_update.cmd`][5] script.
-For now, it is expected that this repository can be forked and
-the script modified (instead of doing nearly the same to modify
-example configuration file).
+Modify list of packages for download:
 
-TODO:
-Implement support for external configuration file
-providing list of selected packages.
+```
+packages.conf
+```
+
+NOTE:
+Script `install.cmd` will install list of packages specified
+_before_ `update.sh` is run rather than consulting `pakcages.conf` again
+(the list used is cached in `distrib/packages.line.conf` file).
+See also comments in [`packages.conf`][6].
 
 ## Update Cygwin content from Internet on Linux ##
 

@@ -25,51 +25,19 @@ IF NOT %errorlevel%==0 (
     EXIT /B 1
 )
 
+REM Read contents of first line in the file into environment variable.
+REM See: http://stackoverflow.com/a/3069068/441652
+SET /p SELECTED_PACKAGES=<"%CYGWIN_DISTRIB_DIR%\packages.line.conf"
+
 REM Run the setup providing list of all required components.
 REM Note: the `^` character makes `cmd` interpreter concatenate lines.
 REM TODO: Take list of packages from configuration file (instead of hardcoding it).
-"%CYGWIN_DISTRIB_DIR%\%CYGWIN_SETUP_EXE%" --packages ^
-mintty,^
-bzip2,^
-unzip,^
-zip,^
-cpio,^
-subversion,^
-gcc,^
-gcc-g++,^
-gdb,^
-make,^
-libboost,^
-libboost-devel,^
-openssh,^
-rsh,^
-vim,^
-nc,^
-wget,^
-git,^
-git-svn,^
-gitk,^
-git-gui,^
-perl,^
-python,^
-tcl-tk,^
-xinit,^
-xorg-server,^
-xhost,^
-xeyes,^
-xterm,^
-rsync,^
-nano,^
-libintl8,^
-libiconv2,^
-libncursesw10,^
-libreadline7,^
-tree,^
-dos2unix,^
+"%CYGWIN_DISTRIB_DIR%\%CYGWIN_SETUP_EXE%" ^
+ --packages "%SELECTED_PACKAGES%" ^
  --download ^
  --wait ^
  --local-package-dir "%CYGWIN_DISTRIB_DIR%" ^
- -R "%CYGWIN_ROOT_DIR%" ^
+ --root "%CYGWIN_ROOT_DIR%" ^
  --only-site ^
  --site "%MIRROR_URL%"
 IF NOT %errorlevel%==0 (
