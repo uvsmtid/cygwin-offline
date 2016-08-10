@@ -22,7 +22,7 @@ cd "${SCRIPT_DIR_PATH}"
 # NOTE: It's not easy to look at forward slashes `/` in paths
 #       when it is supposed to be interpreted by Windows-related software,
 #       but it works perfectly here to specify the sript file.
-wine cmd.exe /C start /b /i /wait "scripts/cygwin_distrib_packages.cmd"
+wine cmd.exe /C "scripts/cygwin_distrib_packages.cmd"
 
 ###############################################################################
 # EOF
