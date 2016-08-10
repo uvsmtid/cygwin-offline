@@ -32,6 +32,7 @@ REM TODO: Take list of packages from configuration file (instead of hardcoding i
 "%CYGWIN_DISTRIB_DIR%\%CYGWIN_SETUP_EXE%" ^
  --download ^
  --wait ^
+ --verbose ^
  --local-package-dir "%CYGWIN_DISTRIB_DIR%" ^
  --root "%CYGWIN_ROOT_DIR%" ^
  --only-site ^
