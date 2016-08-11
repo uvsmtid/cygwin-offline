@@ -63,6 +63,14 @@ placed in the following path relative to the root of this repository:
 distrib/setup-x86_64.exe
 ```
 
+WARNING:
+It is [possible to install Cygwin on Linux on top of Wine][7].
+Do NOT do it. Make sure that the machine where updates are downloaded
+does not contain Cygwin installation. Otherwise the package may
+not be complete as Cygwin installer only downloads missing components.
+In its worst case, remove `~/.wine` directory to get rid of any
+application installed on Wine.
+
 ## Archive Cygwin content into single distributive file on Linux ##
 
 ```
@@ -71,6 +79,12 @@ archive.sh
 
 This script will archive entire content of this directory
 with root of the archive matching root of this repository.
+
+WARNING:
+If the downloaded content is incomplete, `archive.sh` script may
+(rightfully) fail as it inspects some files in the downloaded content.
+The downloaded content can be incomplete if Cygwin is installed on Wine -
+see warning in section for `update.sh` script.
 
 ## Install Cygwin without Internet connectivity on Windows ##
 
@@ -100,6 +114,11 @@ It is also possible to perform download via proxy server.
 Make sure to use right credentials for authentication (if required) -
 proxy setup may be selective about allowed content per user.
 
+Unfortunately, there is [no known way][8] to provide username and password
+for proxy authentication to Cygwin installer. This makes it difficult
+to run update task automatically (e.g. in continuous integration platform)
+behind proxy _with_ authentication.
+
 ## Changelog ##
 
 *   `v1.0.0`
@@ -112,7 +131,7 @@ proxy setup may be selective about allowed content per user.
     *   Tag archived package using the following format:
 
         ```
-        cygwin-offline.git-v[REPO_TAG]-[COMMITS_SINCE_TAG]-g[GIT_COMMIT_HASH]-[dirty].cygwin-v[CYGWIN_VERSION.zip
+        cygwin-offline.git-v[REPO_TAG]-[COMMITS_SINCE_TAG]-g[GIT_COMMIT_HASH]-[dirty].cygwin-v[CYGWIN_VERSION].zip
         ```
 
         For example:
@@ -145,5 +164,7 @@ proxy setup may be selective about allowed content per user.
 [4]: https://github.com/uvsmtid/vagrant-boxes/tree/develop/windows-server-2012-R2-gui
 [5]: /scripts/cygwin_distrib_update.cmd
 [6]: /packages.conf
+[7]: https://wiki.winehq.org/Cygwin_and_More
+[8]: http://serverfault.com/q/796158/134406
 
 
